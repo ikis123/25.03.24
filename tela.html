@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagem do Discord</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .message-container {
+            background-color: #7289da;
+            padding: 15px;
+            border-radius: 8px;
+            width: 300px;
+            margin: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            color: #fff;
+        }
+
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .message-header h3 {
+            margin: 0;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .message-header span {
+            font-size: 12px;
+        }
+
+        .message-content {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="message-container" id="messageContainer">
+        <div class="message-header">
+            <h3>Usuário</h3>
+            <span>10:00</span>
+        </div>
+        <div class="message-content">
+            Olá! Tudo bem?
+        </div>
+    </div>
+
+    <script>
+        // Função para criar uma nova mensagem
+        function createMessage(usuario, conteudo, hora) {
+            var messageContainer = document.createElement("div");
+            messageContainer.classList.add("message-container");
+
+            var messageHeader = document.createElement("div");
+            messageHeader.classList.add("message-header");
+
+            var usuarioElement = document.createElement("h3");
+            usuarioElement.innerText = usuario;
+
+            var horaElement = document.createElement("span");
+            horaElement.innerText = hora;
+
+            messageHeader.appendChild(usuarioElement);
+            messageHeader.appendChild(horaElement);
+
+            var messageContent = document.createElement("div");
+            messageContent.classList.add("message-content");
+            messageContent.innerText = conteudo;
+
+            messageContainer.appendChild(messageHeader);
+            messageContainer.appendChild(messageContent);
+
+            document.getElementById("messageContainer").appendChild(messageContainer);
+        }
+
+        // Exemplo de uso da função para criar uma nova mensagem
+        createMessage("João", "Olá! Tudo bem?", "10:05");
+    </script>
+</body>
+</html>
